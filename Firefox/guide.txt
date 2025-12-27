@@ -1,0 +1,44 @@
+Voici un tutoriel pour la mise en oeuvre de utilisation d'un Ramdisk et forcer Firefox à l'utiliser pour éviter l'usure majeure sur un disque SSD en particulier.
+Firefox écrit vraiment beaucoup de fois sur les disques quand il est utilisé.
+
+Le but ici n'est pas vraiment d'expliquer comment faire un Ramdisk les explications existent déjà ailleurs, mais le sujet ici contiendra un script et 2 lignes de racccourcis pour windows,
+afin de lancer le script d'un profile FF vers un Ramdisk, en mode minimisé ou encore invisible (VBS non-testé) pour lancer Firefox car windows restreint les fenêtres GUI lancé par cmd ou ps.
+Pourquoi choisir de lancer en mode minimisé ou masqué ? c'est simplement pour éviter toutes fermeture non désiré intentionellement.
+
+Explication rapide et calcul de gain d'écritures FF vers ram, le calcul du gain fait vraiment sens (Merci IA).
+
+
+Voici un petit **schéma visuel simple** montre l’impact du RAM disk sur les écritures Firefox :
+```
+Avant RAM disk (profil normal) :
+╔══════════════════════════════╗
+║ Interval normal : 15s    	     ║  → Écritures fréquentes sur SSD
+║ Interval idle : 1h       	     ║  → Écritures supplémentaires sur SSD
+╚══════════════════════════════╝
+≈ 250 écritures/heure
+Après RAM disk + script 5 min :
+╔════════════════════════════════╗
+║ Interval normal : 15s    	       ║  → Écritures en RAM uniquement
+║ Interval idle : 5min    	       ║  → Synchronisé avec script RAM disk
+║ Sauvegarde script : toutes 5min ║  → SSD seulement ici
+╚════════════════════════════════╝
+≈ 13 écritures/heure
+```
+✅ Points clés à retenir :
+* La **grande majorité des écritures** restent en RAM
+* Les écritures sur SSD sont **rares et contrôlées**
+* Le **risque de collision** n'est pas null 6%~, mais robocopy est plus fiable que xcopy et ne réecrit pas tout seulement les changements.
+* Gain approximatif : **~95 % d’écritures évitées**
+### Calcul du gain approximatif
+
+`Gain = (Ancien total - Nouveau total) / Ancien total ≈ (250 - 13) / 250 ≈ 0.948 ≈ 95%`
+
+✅ Donc on réduis **environ 95 % des écritures sur SSD**
+---
+### Pourquoi le gain est énorme
+* **Firefox écrit très fréquemment** sur SSD avec interval = 15 s → usure SSD accrue
+* Avec RAM disk : toutes ces écritures **restent en RAM**, seules les copies périodiques sont faites
+* Même avec **sauvegarde périodique toutes les 5 mn**, tu écris **beaucoup moins** que Firefox normalement
+En résumé : **le gain de 95 % correspond à l’évitement des écritures fréquentes de sessionstore et prefs**, qui sont la vraie source d’usure SSD quand interval est très court.
+
+Maj a suivre...
