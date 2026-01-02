@@ -3,7 +3,7 @@
 Bienvenue dans mes mémos pratiques ! Ici, tu trouveras quelques guides simples sur deux/trois sujets :  
 
 ## 1. Utiliser le profil Firefox en Ramdisk pour SSD TipTop !
-Accédez aux fichiers et guides dans le [Dossier Firefox](Firefox/).
+Accédez aux fichiers et [guides](Firefox/guide.md) dans le [Dossier Firefox](Firefox/).
 
 ### Contenu du Dossier :
 - Guide d’utilisation
