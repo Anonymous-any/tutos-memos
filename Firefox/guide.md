@@ -32,7 +32,7 @@ Après RAM disk + script 5 min :
 * La **grande majorité des écritures** restent en RAM (C'est aussi plus rapide !)
 * Les écritures sur SSD sont **rares et contrôlées**
 * Le **risque de collision** n'est pas null 6%~, mais robocopy est plus fiable que xcopy et ne réecrit pas tout seulement les changements.
-* donc 100% sùr car si un cas de collision ce produit il est réécrit 5mn plus tard, où bien à la fermeture imédiate de FF (écriture forcée).
+* donc 100% sùr car si un cas de collision ce produit il est réécrit 5mn plus tard, où bien à la fermeture immédiate de FF (écriture forcée).
 * Gain approximatif : **~95 % d’écritures évitées**
 * Une sécurité d'autocopie est assuré au moment de la fermeture par exemple si inférieure à <-5mn...
 
