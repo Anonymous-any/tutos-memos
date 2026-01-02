@@ -1,8 +1,0 @@
-Voici un tutoriel pour la mise en oeuvre de utilisation de DXVK pour windows.
-
-Il présente une parche à suivre pas à pas pour l'utiliser en prenant comme exemple les Farming simulators afin de créer le système de rendu via DXVK <-> VULKAN qu'il ne peuvent pas faire par défaut.
-La listes des jeux n'st pas limité mais pourra ne pas fonctionner dépendant de vos titres utilisés.
-
-Le tutoriel sera basé sur Fs15 / 17 / 19 / 22, mais pourra être similaire pour d'autres jeux qui peuvent prendre en charge.
-
-A suivre...
