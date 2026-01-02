@@ -11,16 +11,15 @@ Accédez aux fichiers et guides dans le [Dossier Firefox](Firefox/).
 - Astuces de performance
 
 
-## 2. DXVK pour supporter divers Jeux sous Windows (sans liste) TipTop !
+## 2. DXVK pour supporter divers Jeux sous Windows (sans liste précise) TipTop !
 Accédez aux fichiers et guides dans le [Dossier DXVK](DXVK/).
 
 ### Contenu du Dossier :
 - Installation et configuration de DXVK
-- Compatibilité avec les jeux (exemples : Farming Simulators FS15, FS17, FS19, FS22)
+- Compatibilité avec (par exemple les : Farming Simulators FS15, FS17, FS19, FS22)
 
 
-## 3. Résolution du problème de crash savegame pour Motorm4x (le jeu plante) quand une sauvegarde est modifiée,
-## où si elle provient d'ailleurs (inutilisable en l'état) + Traduction French TipTop !
+## 3. Résolution du problème de crash savegame pour Motorm4x (le jeu plante) quand une sauvegarde est modifiée, où si elle provient d'ailleurs (inutilisable en l'état) + Traduction French TipTop !
 Accédez aux fichiers et guides dans le [Dossier Motorm4x](Motorm4x/).
 
 ### Contenu du Dossier :
