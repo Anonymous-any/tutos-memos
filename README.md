@@ -23,9 +23,9 @@ Accédez aux fichiers et guides dans le [Dossier DXVK](DXVK/).
 Accédez aux fichiers et guides dans le [Dossier Motorm4x](Motorm4x/).
 
 ### Contenu du Dossier :
-- Tuto savegame Motorm4x.txt  ->  Accédez aux fichiers et guides dans le [Dossier Motorm4x/savegame](Motorm4x/savegame/).
-- Motorm4x.rar  ->  Accédez aux fichiers dans le [Dossier Motorm4x/savegame](Motorm4x/savegame/).
-- Traduction Fr .rar  ->  Accédez aux fichiers et guides dans le [Dossier Motorm4x/Traduction](Motorm4x/Traduction/).
+- Tuto savegame Motorm4x.txt  ->  Accédez au fichier tuto directement : [Tuto savegame Motorm4x](Motorm4x/savegame/Tuto%20savegame%20Motorm4x.txt).
+- Motorm4x.rar  ->  Accédez à l'archive de la savegame prête à l'emploi : [Motorm4x.rar](Motorm4x/savegame/).
+- Trad fr.rar  ->  Accédez aux fichiers et guide pour la traduction Fr : [Dossier de Traduction](Motorm4x/Traduction%20Fr/).
 
 
 Oncl'Bil
