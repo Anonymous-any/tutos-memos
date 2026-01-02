@@ -7,8 +7,10 @@
 * **Conserver la balise vide**, par exemple :
 
 ```xml
+
 <options_category>
 </options_category>
+
 ```
 
 ---
