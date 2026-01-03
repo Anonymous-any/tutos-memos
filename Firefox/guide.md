@@ -1,5 +1,5 @@
 
-Voici un tutoriel pour la mise en oeuvre et l'utilisation d'un Ramdisk pour forcer Firefox à l'utiliser, afin éviter une usure majeure sur un disque SSD en particulier. (Certainement possible avec d'autres naviguateurs) mais ici détaillé que pour FF.
+Voici un tutoriel pour la mise en oeuvre et l'utilisation d'un Ramdisk pour forcer Firefox à l'utiliser, afin d'éviter une usure majeure sur un disque SSD en particulier. (Certainement possible avec d'autres naviguateurs) mais ici détaillé que pour FF.
 ---
 * Firefox écrit vraiment beaucoup de fois sur les disques quand il est utilisé.
 * Le but ici n'est pas vraiment d'expliquer comment faire un Ramdisk les explications existent déjà ailleurs, mais le propos ici est d'expliquer comment utiliser le script (avec toutes les explications de ce qu'il fait), et 2 lignes de racccourcis pour windows (au choix).
