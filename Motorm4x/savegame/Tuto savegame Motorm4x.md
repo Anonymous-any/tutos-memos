@@ -17,9 +17,9 @@
 ---
 ### 3️⃣ Lancer le jeu
 * Lancer le jeu
-* se positionner **obligatoirement sur carrière**, faire un ALT+TAB puis
+* Se positionner **obligatoirement sur carrière**, faire un ALT+TAB puis
 * **Supprimer `PLAYER.HSX`** à nouveau, et **Enlever la lecture seule du XML AVANT de charger la carrière**
-ALT+TAB encore puis, * Charger ** la carrière**
+ALT+TAB encore puis, **Charger la carrière.**
   * (ne pas lancer partie rapide ou autre mode)
 * Quand la carrière est chargée vous pouvez aussi faire une petite modif comme par exemple acheter du carburant,
 mais normalement c'est déjà suffisant pour ajourner la syncronisation .xml, .hsx -> 4 octets.
@@ -28,24 +28,21 @@ mais normalement c'est déjà suffisant pour ajourner la syncronisation .xml, .h
 * la progression est conservée
 * le moteur a rajouté au .XML CG, render, résolution etc...
 * enfin un nouveau .HSX cohérent est généré
-
 ---
 
 ### 4️⃣ Finaliser
 * Quitter le jeu normalement
 ⚠️ Point important :
 Si la lecture seule est laissée après ce stade, le moteur ne pourra pas finaliser correctement l’état.
-
 ---
 
 ### 5️⃣ Reconfiguration
-* Relancer le jeu qui devrait maintenant fonctionner avec l'ancienne savegame ajournée !
+* Relancer le jeu qui doit maintenant fonctionner avec l'ancienne savegame ajournée !
 * Aller dans paramètres :
   * réglages vidéo
   * réglages audio
 * Reconfigurer normalement
-* Quitter / relancer pour validation
- 
+* Quitter / relancer pour validation 
 ---
 
 ## ✅ Résultat
@@ -93,6 +90,6 @@ C'est juste une alternative pour ceux qui ne parviennent pas à faire l'autre pr
 
 ---
 Ce mémo est maintenant **concis et réutilisable tel quel**.  
-Tu peux le garder tel quel à côté de ta sauvegarde 👍
+Tu peux le garder à côté de ta sauvegarde 👍
 
 Crédit : Anonymous, Oncl'Bil
