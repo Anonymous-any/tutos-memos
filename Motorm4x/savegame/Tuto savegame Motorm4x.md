@@ -95,4 +95,4 @@ C'est juste une alternative pour ceux qui ne parviennent pas à faire l'autre pr
 Ce mémo est maintenant **concis et réutilisable tel quel**.  
 Tu peux le garder tel quel à côté de ta sauvegarde 👍
 
-Bon jeu, Oncl'Bil
+Crédit : Anonymous, Oncl'Bil
