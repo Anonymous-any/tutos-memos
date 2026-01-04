@@ -81,5 +81,6 @@ WshShell.Run """C:\Program Files\Mozilla Firefox\FfversRam.bat""", 0, False
 
 `/XD : Exclure certains dossiers (safebrowsing, startupCache).`  <- (non nécéssaires)
 
-`/XF : Exclure certains fichiers (*.sqlite-wal, *.sqlite-shm).`  <- (non nécéssaires)
+`/XF : Exclure certains fichiers (*.sqlite-wal, *.sqlite-shm).`  <- (non nécéssaires)  
 
+Crédit : Anonymous, Oncl'Bil
