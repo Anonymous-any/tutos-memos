@@ -40,20 +40,20 @@ Après RAM disk + script 5 min :
 #### Le gain est énorme
 * **Firefox écrit très fréquemment** avec interval = 15 s → usure SSD accrue
 * Avec RAM disk : toutes ces écritures **restent en RAM**, seules les copies périodiques sont faites et seulement les fichiers modifiées avec l'utilisation du script et robocopy via les paramètres passé à robocopy dans le script. (Voir en bas de page pour les détails robocopy)
-* Même avec **sauvegarde périodique toutes les 5 mn**, tu écris **beaucoup moins** que Firefox normalement
+* Même avec **sauvegarde périodique toutes les 5 mn**, tu écris **beaucoup moins** que Firefox normalement.  
 En résumé : **le gain de 95 % correspond à l’évitement des écritures fréquentes de sessionstore et prefs**, qui sont la vraie source d’usure SSD quand interval est très court.
+
 ---
-### Alors les étapes, vous créez d'abord votre Ramdisk par exemple sur la lettre Y:
+#### Alors les étapes, vous créez d'abord votre Ramdisk par exemple sur la lettre Y:
 
-#### Voilà [le Script](FfversRam.bat) où toutes les étapes sont commentés dedans :)
-## Les modifications que vous devez appliquer dans le script sont très simple :
-* (1) set RAMDISK=Y:\profileFf        <- A la ligne 7. Il s'agît du nom de dossier qui doit être utilisé/crée. `profileFf`
-
-Exemple, tu met `lenomquetuveut` (il sera crée par le script si pas existant).
+Voilà [le Script](FfversRam.bat) où toutes les étapes sont commentés dedans :)  
+Les modifications que vous devez appliquer dans le script sont très simple :
+* (1) set RAMDISK=Y:\profileFf        <- A la ligne 7. Il s'agît du nom de dossier qui doit être utilisé/crée.  
+Exemple, à la place de `profileFf` on met `lenomqu'onveut` (il sera crée par le script si pas existant) où bien on peut laisser tel quel.
 * (2) set PROFILE_DISK=%APPDATA%\Mozilla\Firefox\Profiles\xxxxxxx.default  <- A la ligne 8.
 
-Ici à `xxxxxxx.default` doit évidement correspondre au nom du profil chez vous.
-(Je n'ai pas cherché l'option pour utiliser plusieurs profils en même temps), mais surement possible...ce n'est pas le sujet.
+Ici à `xxxxxxx.default` doit évidement correspondre au nom du profil chez vous.  
+(Je n'ai pas cherché si une option existe pour utiliser plusieurs profils en même temps), mais surement possible...ce n'est pas le sujet.
 
 ### Voilà c'est tout pour la modification du script.
 ---
@@ -62,10 +62,10 @@ pour cmd  (alternative minimisée).
 ```
 cmd.exe /c start "" /min "C:\Program Files\Mozilla Firefox\FfversRam.bat"
 ```
-Enfin l'autre raccourcis fait pour lancer ce .vbs qui lance Le Script qui lance FF. `o-°`
+Enfin, l'autre raccourcis est fait pour lancer ce .vbs, qui lance [le Script](FfversRam.bat), qui lance FF. `o-°`
 
-`wscript.exe" "C:\chemin\FfversRam.vbs"`		<- nécéssaire d'activer VBScript ! (ne devrait plus afficher de fenetre cmd ouverte ou minimisée).
-Utiliser VBScript (failles de sécurités)...donc non testé.
+`wscript.exe" "C:\chemin\FfversRam.vbs"`		<- il est nécéssaire d'activer VBScript ! (ne devrait plus afficher de fenetre cmd ouverte ou minimisée).  
+Mais ⚠️ utiliser VBScript = (failles de sécurités)...donc non testé.  
 Vous pouvez créer ce fichier .vbs avec le code ci-dessous ou le télécharger [ici le .vbs](FfversRam.vbs) :
 ```
 Set WshShell = CreateObject("WScript.Shell")
@@ -73,14 +73,10 @@ WshShell.Run """C:\Program Files\Mozilla Firefox\FfversRam.bat""", 0, False
 ```
 ---
 ### Enfin le détails et explications des paramètres passés à robocopy :
-`/MIR : Copier et synchroniser les dossiers (avec suppression).`
-
-`/R:0 : Pas de tentative de relecture.`
-
-`/W:0 : Pas de délai entre les tentatives.`
-
-`/XD : Exclure certains dossiers (safebrowsing, startupCache).`  <- (non nécéssaires)
-
+`/MIR : Copier et synchroniser les dossiers (avec suppression).`  
+`/R:0 : Pas de tentative de relecture.`  
+`/W:0 : Pas de délai entre les tentatives.`  
+`/XD : Exclure certains dossiers (safebrowsing, startupCache).`  <- (non nécéssaires)  
 `/XF : Exclure certains fichiers (*.sqlite-wal, *.sqlite-shm).`  <- (non nécéssaires)  
-
+  
 Crédit : Anonymous, Oncl'Bil
