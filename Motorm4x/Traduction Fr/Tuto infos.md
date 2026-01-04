@@ -6,4 +6,4 @@ Je ne fais pas un setup d'installation.
 - Avec les fichiers de l'archive téléchargée ici [Trad fr.rar](Trad%20fr.rar).
 
 
-Oncl'Bil
+Crédit : Anonymous, Oncl'Bil
