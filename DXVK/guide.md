@@ -15,14 +15,14 @@ Pour les autres possesseurs n'ayant pas de carte ATI/AMD, je ne pourrait donc pa
 ---
 Marche à suivre pour FS19 ou même FS17/****FS15 (voir détail important)***, y compris l’overlay HUD pour Vulkan.
 
-1️⃣ Récupérer DXVK
-    Sur le site officiel : [DXVK Releases GitHub](https://github.com/doitsujin/dxvk/releases)  
+1️⃣ Récupérer DXVK  
+Sur le site officiel : [DXVK Releases GitHub](https://github.com/doitsujin/dxvk/releases)  
 Télécharger la dernière version stable (dxvk-x.x.x.tar.gz)  
 Évidement, les versions 32/64 sont à adapter en conséquence...  
 Donc vérifier avec le `gestionnaire de taches` le processus concerné x86-x64, ou avec d'autres outils tels que `SystemInformer`.
 -    Décompresser le fichier où vous voulez (ex. dans Bureau\dxvk)
 ---
-2️⃣ Identifier les DLL à copier
+2️⃣ Identifier les DLL à copier  
 Pour FS19/FS17 (DX11) (et DX9 pour ****FS15 voir détail important***), vous aurez besoin des deux DLL à placer à côté de l'exe principal dans l'installation du jeu `x64/FarmingSimulator20XXGame.exe` :
 -    d3d11.dll
 -    dxgi.dll
@@ -31,19 +31,22 @@ Pour FS19/FS17 (DX11) (et DX9 pour ****FS15 voir détail important***), vous aur
 Explication, ces DLL vont intercepter les appels DX11 et les traduire en Vulkan.  
 
 ---
-3️⃣ Copier les DLL dans le dossier du jeu, alors ouvrez votre dossier de jeu, par exemple :
+3️⃣ Copier les DLL dans le dossier du jeu  
+Alors ouvrez votre dossier de jeu, par exemple :
 `Epic Games\FarmingSimulator19\x64\` et copier `d3d11.dll`, `dxgi.dll` dans ce dossier (au même endroit que FarmingSimulator2019Game.exe)  
 :warning:Important : ne pas toucher aux DLL originales du jeu, DXVK crée son propre wrapper.
 
 ---	
-4️⃣ Modifier le <ins>game.xml (faire une copie)</ins>, situé dans `Mes documents\My Games\FarmingSimulator20XX`, car nécéssaire au moins pour FS15 voir (*détail important*) :warning:.  
+4️⃣ Modifier le <ins>game.xml (faire une copie)</ins>  
+Situé dans `Mes documents\My Games\FarmingSimulator20XX`, car nécéssaire au moins pour FS15 voir (*détail important*) :warning:.  
 Il doivent être sur `<renderer>D3D_11` pour Fs19 / Fs17.  
-Donc mettre comme ceci :  
+Donc si ce n'est pas déjà comme ça mettre comme ceci :  
 *        <renderer>D3D_11</renderer>		<!-- FS17/FS19 -->  
 Et deux particularité pour FS15
 *       <vsync adaptive="false">true</vsync>
         <!-- adaptive="true">true crée un écran noir avec dxvk en mode fenêtre -->
         <!-- adaptive="false">true pour éviter écran noir avec dxvk en mode fenêtre -->
+    
         <renderer>D3D_90</renderer>		<!--  FS15 (*détail important*), supporte dx9 (donc utiliser d3d9.dll) -->  
 Il existe donc d'autre rendus possible qu'OGL par défaut pour FS15. On aurait jamais pu imaginer Vulkan pour Fs15 en ce temps là :smiley:.  
 Cette ligne `<renderer` est (non présente par défaut pour FS15) mais prise en charge, à ajouter donc sous la balise `</scalability>`  
