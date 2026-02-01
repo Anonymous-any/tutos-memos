@@ -1,10 +1,10 @@
 
 Voici un tutoriel pour la mise en oeuvre et l'utilisation d'un Ramdisk pour forcer Firefox à l'utiliser, afin d'éviter une usure majeure sur un disque SSD en particulier. (Certainement possible avec d'autres naviguateurs) mais ici détaillé que pour FF.
 ---
-* Firefox écrit vraiment beaucoup de fois sur les disques quand il est utilisé.
-* Le but ici n'est pas vraiment d'expliquer comment faire un Ramdisk les explications existent déjà ailleurs, mais le propos ici est d'expliquer comment utiliser le script (pour Autoi3), afin d'éviter le problème des blocages du timeout et / où autres ping méthodes pour windows.
-* Le but du script (convertissable en exécutable de surcroît), est de lancer Firefox et faire qu'un profil FF existant et utilisable, soit copié vers un Ramdisk, via Autoi3 (v3.3.18) fonctionnel pour ce script afin de s'affranchir des contraintes windows .bat ou .vbs (obsolète) et non je n'aime pas ps, pour ne pas être restreint les fenêtres GUI lancées par cmd ou ps.
-* Pourquoi choisir de lancer via Autoi3 ? c'est simplement pour éviter les modes minimisés ou masqués ou multi-fenêtrés.
+* Firefox écrit vraiment beaucoup de fois sur les disques quand il est utilisé.  
+* Le but ici n'est pas vraiment d'expliquer comment faire un Ramdisk les explications existent déjà ailleurs, mais le propos ici est de fournir et d'expliquer comment utiliser le script (ici pour Autoi3 v3.3.18), afin d'éviter le problème des blocages du timeout et / où autres ping méthodes pour windows.  
+* Le but du script (convertissable en exécutable de surcroît), est de lancer Firefox et faire qu'un profil FF existant et fonctionnel soit copié vers un Ramdisk, via ce script (ici Autoi3 v3.3.18) afin de s'affranchir des contraintes windows .bat ou .vbs (obsolète) et non je n'aime pas ps, ET, pour ne pas être restreint par les fenêtres GUI lancées avec cmd ou ps.  
+* Pourquoi choisir de lancer via Autoi3 ? Plusieurs raisons, éviter les modes minimisés ou masqués ou multi-fenêtrés et le blocage des timers cmd par les MicrochioteS windows actuels.  
 * Enfin, explication rapide et calcul de gain d'écritures FF vers ram, le calcul du gain est sans appel.  
 
 <br>
@@ -59,6 +59,13 @@ Exemple, à la place de `profileFf` on met `lenomqu'onveut` (il sera créé par 
 Ici à `xxxxxxx.default` doit évidement correspondre au nom de votre profil chez vous.  
 (Je n'ai pas cherché si une option existe pour utiliser plusieurs profils en même temps), mais surement possible...ce n'est pas le sujet.  
 
+<br>
+
+Si, vous souhaitez compiler Autoi3 vers un éxécutable les commandes génériques sont :  
+`Aut2Exe.exe /in <infile.au3> [/out <outfile.exe>] [/icon <iconfile.ico>] [/comp 0-4] [/ignoredirectives] [/nopack] [/pack] [/ansi] [/unicode] [/x64] [/console] [/gui] [/execlevel <asinvoker | highestavailable | requireadministrator | none>] [/compatibility <vista | win7 | win8>] [/comments <>] [/companyname <>] [/filedescription <>] [/internalname <>] [/legalcopyright <>] [/legaltrademarks <>] [/originalfilename <>] [/productname <>] [/fileversion <fixednum[,num]>] [/productversion <fixednum[,num]>]`  
+
+Moi j'ai fait exemple : `Aut2Exe.exe  /in "C:\Mon chemin vers\monscript.au3" /out "C:\Mon chemin vers\monexe.exe" /nopack /icon "C:\Mon chemin vers\Aut2Exe\Icons\AutoIt_Main_v10_256x256_RGB-A.ico" /execlevel asinvoker  /filedescription "Mon Lanceur Ff"  /internalname "mon lanceur Ff"  /companyname "On metceequ'onveut Corp"  /fileversion 1.2.3 /productversion 1.2.3 /legalcopyright "© 2026 Anonymous, Oncl'Bil"`  
+
 ### Voilà c'est tout pour la modification du script.
 ---
 ### Enfin le détails et explications des paramètres passés à robocopy :
@@ -67,8 +74,9 @@ Ici à `xxxxxxx.default` doit évidement correspondre au nom de votre profil che
 `/W:0 : Pas de délai entre les tentatives.`  
 `/XD : Exclure certains dossiers (safebrowsing, startupCache).`  <- (non nécéssaires)  
 `/XF : Exclure certains fichiers (*.sqlite-wal, *.sqlite-shm).`  <- (non nécéssaires)  
-Et un peut particulier pour un `cxxxxx.sqlite` qui s'est créé par Ff car il ne doit pas aimer le déplacement, et pour survire il se fabrique ce fichier.  
-Perso, je ajouté dans mon script pour qu'il soit exclus aussi par robocopy et pour ne pas qu'il soit recopié sur le dd /ssd.  
+
+Et un point particulier pour un fichier `cxxxxx.sqlite` qui s'est créé par Ff car il ne doit pas aimer le déplacement de profils, et que pour survire il se fabrique ce fichier.  
+Perso, j'ai ajouté dans mon script pour qu'il soit aussi exclus par robocopy et pour ne pas qu'il soit recopié sur le dd /ssd.  
 Je ne met pas cette ligne ici, car je peut imaginer que ce nom de fichier non standard ne correspond pas à tout le monde.  
 
 <br>
