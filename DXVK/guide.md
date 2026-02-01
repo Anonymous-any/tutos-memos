@@ -86,7 +86,7 @@ Si le jeu crash, (vous avez mal fait le tuto) → supprimer les DLL DXVK vous re
 **Le résultat ci-dessous :**
 Avec DVXK HUD Fs19 | Sans DXVK Dx11 Fs19
 --- | ---
-![](https://github.com/Anonymous-any/tutos-memos/blob/branche-temp/Firefox/images/1.jpg) | ![](https://github.com/Anonymous-any/tutos-memos/blob/branche-temp/Firefox/images/2.jpg)  
+![](https://github.com/Anonymous-any/tutos-memos/blob/branche-temp/DXVK/images/1.jpg) | ![](https://github.com/Anonymous-any/tutos-memos/blob/branche-temp/DXVK/images/2.jpg)  
 
 :bulb:À savoir que (par défaut), si on met `<renderer>VULKAN` sur Fs22, il est censé être pris en charge directement.  
 
