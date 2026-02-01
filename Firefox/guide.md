@@ -2,9 +2,9 @@
 Voici un tutoriel pour la mise en oeuvre et l'utilisation d'un Ramdisk pour forcer Firefox à l'utiliser, afin d'éviter une usure majeure sur un disque SSD en particulier. (Certainement possible avec d'autres naviguateurs) mais ici détaillé que pour FF.
 ---
 * Firefox écrit vraiment beaucoup de fois sur les disques quand il est utilisé.  
-* Le but ici n'est pas vraiment d'expliquer comment faire un Ramdisk les explications existent déjà ailleurs, mais le propos ici est de fournir et d'expliquer comment utiliser le script (ici pour Autoi3 v3.3.18), afin d'éviter le problème des blocages du timeout et / où autres ping méthodes pour windows.  
-* Le but du script (convertissable en exécutable de surcroît), est de lancer Firefox et faire qu'un profil FF existant et fonctionnel soit copié vers un Ramdisk, via ce script (ici Autoi3 v3.3.18) afin de s'affranchir des contraintes windows .bat ou .vbs (obsolète) et non je n'aime pas ps, ET, pour ne pas être restreint par les fenêtres GUI lancées avec cmd ou ps.  
-* Pourquoi choisir de lancer via Autoi3 ? Plusieurs raisons, éviter les modes minimisés ou masqués ou multi-fenêtrés et le blocage des timers cmd par les MicrochioteS windows actuels.  
+* Le but ici n'est pas d'expliquer comment faire un Ramdisk avec par exemple l'excellent ImDisk les explications existent déjà ailleurs, mais le propos ici est de fournir et d'expliquer comment utiliser [le script](FfversRam.au3) (ici pour [AutoIt v3.3.18](https://www.autoitscript.com/site/autoit-news/autoit-v3-3-18-0-released/)), afin d'éviter le problème des blocages du timeout et / où autres ping méthodes pour windows.  
+* Le but du script (convertissable en exécutable de surcroît), est de lancer Firefox et faire qu'un profil FF existant et fonctionnel soit copié vers un Ramdisk, via [le script](FfversRam.au3) (ici [AutoIt v3.3.18](https://www.autoitscript.com/site/autoit-news/autoit-v3-3-18-0-released/)) afin de s'affranchir des contraintes des timers windows .bat ou .vbs (obsolète) et non je n'aime pas ps.  
+* Pourquoi choisir de lancer via [AutoIt](https://www.autoitscript.com/site/autoit-news/autoit-v3-3-18-0-released/) ? Plusieurs raisons, éviter les modes minimisés ou masqués ou multi-fenêtrés et le blocage des timers cmd devenus 'cassés' par les MicrochioteS windows actuels.  
 * Enfin, explication rapide et calcul de gain d'écritures FF vers ram, le calcul du gain est sans appel.  
 
 <br>
@@ -50,21 +50,29 @@ En résumé : **le gain de 95 % correspond à l’évitement des écritures fr
 ---
 #### Alors les étapes, vous créez d'abord votre Ramdisk par exemple sur la lettre Y:
 
-Voilà [le Script](FfversRam.au3) où toutes les étapes sont commentés dedans :)  
+Voilà [le script](FfversRam.au3) où toutes les étapes sont commentés dedans :)  
 Les modifications que vous devez appliquer dans le script sont très simples :  
-* (1) set RAMDISK=Y:\profileFf        <- A la ligne 7. Il s'agit du nom de dossier qui doit être utilisé/crée pour copier le profile dans le Ramdisk.  
-Exemple, à la place de `profileFf` on met `lenomqu'onveut` (il sera créé par le script si pas existant), ou bien on peut laisser tel quel, ou encore créer un .bat qui va créer ce dossier via la gestion des tâches (plus contraignant).  
-* (2) set PROFILE_DISK=%APPDATA%\Mozilla\Firefox\Profiles\xxxxxxx.default  <- A la ligne 8.  
 
-Ici à `xxxxxxx.default` doit évidement correspondre au nom de votre profil chez vous.  
+1️⃣  `Global $RAMDISK = "Y:\profileFf"`       <- A la ligne 6.  
+ 
+Il s'agit du nom de dossier qui doit être utilisé/crée pour copier le profile dans le Ramdisk.  
+Exemple, à la place de `profileFf` on met `lenomqu'onveut` (il sera créé par [le script](FfversRam.au3) SI la lettre de lecteur existe bien, et si pas existant).  
+On peut aussi bien laisser tel quel, ou encore créer un .bat qui va créer ce dossier via la gestion des tâches (plus contraignant).
+
+2️⃣ `Global $PROFILE_DISK = @AppDataDir & "\Mozilla\Firefox\Profiles\xxxxxxx.default"`  <- A la ligne 7.  
+
+Ici à `xxxxxxx.default` doit évidement correspondre au nom de votre profil chez vous que l'on va trouver dans le chemin correspondant, sa va de soit.  
+
 (Je n'ai pas cherché si une option existe pour utiliser plusieurs profils en même temps), mais surement possible...ce n'est pas le sujet.  
 
+---
+Compiler l'executable [AutoIt](https://www.autoitscript.com/site/autoit-news/autoit-v3-3-18-0-released/) facultatif, mais sa permet de ne pas devoir le laisser tourner en arrière plan et d'en dépendre👍.  
 <br>
 
-Si, vous souhaitez compiler Autoi3 vers un éxécutable les commandes génériques sont :  
+Si, vous souhaitez compiler AutoIt vers un éxécutable les commandes génériques sont :  
 `Aut2Exe.exe /in <infile.au3> [/out <outfile.exe>] [/icon <iconfile.ico>] [/comp 0-4] [/ignoredirectives] [/nopack] [/pack] [/ansi] [/unicode] [/x64] [/console] [/gui] [/execlevel <asinvoker | highestavailable | requireadministrator | none>] [/compatibility <vista | win7 | win8>] [/comments <>] [/companyname <>] [/filedescription <>] [/internalname <>] [/legalcopyright <>] [/legaltrademarks <>] [/originalfilename <>] [/productname <>] [/fileversion <fixednum[,num]>] [/productversion <fixednum[,num]>]`  
 
-Moi j'ai fait exemple : `Aut2Exe.exe  /in "C:\Mon chemin vers\monscript.au3" /out "C:\Mon chemin vers\monexe.exe" /nopack /icon "C:\Mon chemin vers\Aut2Exe\Icons\AutoIt_Main_v10_256x256_RGB-A.ico" /execlevel asinvoker  /filedescription "Mon Lanceur Ff"  /internalname "mon lanceur Ff"  /companyname "On metceequ'onveut Corp"  /fileversion 1.2.3 /productversion 1.2.3 /legalcopyright "© 2026 Anonymous, Oncl'Bil"`  
+Moi j'ai fait exemple : `Aut2Exe.exe  /in "C:\Mon chemin vers\monscript.au3" /out "C:\Mon chemin vers\monexe.exe" /nopack /icon "C:\Mon chemin vers\Aut2Exe\Icons\AutoIt_Main_v10_256x256_RGB-A.ico" /execlevel asinvoker  /filedescription "Mon Lanceur Ff"  /internalname "mon lanceur Ff"  /companyname "On metceequ'onveut Corp"  /fileversion 1.2.3 /productversion 1.2.3 /legalcopyright "© 2026 Anonymous, Oncl'Bil"` on est pas obligé mais c'est moins moche.  
 
 ### Voilà c'est tout pour la modification du script.
 ---
