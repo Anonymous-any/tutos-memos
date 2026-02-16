@@ -66,13 +66,19 @@ Ici à `xxxxxxx.default` doit évidement correspondre au nom de votre profil che
 (Je n'ai pas cherché si une option existe pour utiliser plusieurs profils en même temps), mais surement possible...ce n'est pas le sujet.  
 
 ---
-Compiler l'executable [AutoIt](https://www.autoitscript.com/site/autoit-news/autoit-v3-3-18-0-released/) facultatif, mais sa permet de ne pas devoir le laisser tourner en arrière plan et d'en dépendre👍.  
+Compiler l'executable [AutoIt](https://www.autoitscript.com/site/autoit-news/autoit-v3-3-18-0-released/) facultatif, mais sa permet de ne pas devoir laisser tourner Autoit en arrière plan et d'en dépendre👍.  
 <br>
 
 Si, vous souhaitez compiler AutoIt vers un éxécutable les commandes génériques sont :  
-`Aut2Exe.exe /in <infile.au3> [/out <outfile.exe>] [/icon <iconfile.ico>] [/comp 0-4] [/ignoredirectives] [/nopack] [/pack] [/ansi] [/unicode] [/x64] [/console] [/gui] [/execlevel <asinvoker | highestavailable | requireadministrator | none>] [/compatibility <vista | win7 | win8>] [/comments <>] [/companyname <>] [/filedescription <>] [/internalname <>] [/legalcopyright <>] [/legaltrademarks <>] [/originalfilename <>] [/productname <>] [/fileversion <fixednum[,num]>] [/productversion <fixednum[,num]>]`  
+```
+Aut2Exe.exe /in <infile.au3> [/out <outfile.exe>] [/icon <iconfile.ico>] [/comp 0-4] [/ignoredirectives] [/nopack] [/pack] [/ansi] [/unicode] [/x64] [/console] [/gui] [/execlevel <asinvoker | highestavailable | requireadministrator | none>] [/compatibility <vista | win7 | win8>] [/comments <>] [/companyname <>] [/filedescription <>] [/internalname <>] [/legalcopyright <>] [/legaltrademarks <>] [/originalfilename <>] [/productname <>] [/fileversion <fixednum[,num]>] [/productversion <fixednum[,num]>]
+```
 
-Moi j'ai fait exemple : `Aut2Exe.exe  /in "C:\Mon chemin vers\monscript.au3" /out "C:\Mon chemin vers\monexe.exe" /nopack /icon "C:\Mon chemin vers\Aut2Exe\Icons\AutoIt_Main_v10_256x256_RGB-A.ico" /execlevel asinvoker  /filedescription "Mon Lanceur Ff"  /internalname "mon lanceur Ff"  /companyname "On metceequ'onveut Corp"  /fileversion 1.2.3 /productversion 1.2.3 /legalcopyright "© 2026 Anonymous, Oncl'Bil"` on est pas obligé mais c'est moins moche.  
+Moi j'ai fait exemple : 
+```
+Aut2Exe.exe  /in "C:\Mon chemin vers\monscript.au3" /out "C:\Mon chemin vers\monexe.exe" /nopack /icon "C:\Mon chemin vers\Aut2Exe\Icons\AutoIt_Main_v10_256x256_RGB-A.ico" /execlevel asinvoker  /filedescription "Mon Lanceur Ff"  /internalname "mon lanceur Ff"  /companyname "On metceequ'onveut Corp"  /fileversion 1.2.3 /productversion 1.2.3 /legalcopyright "© 2026 Anonymous, Oncl'Bil"
+```
+on est pas obligé mais c'est moins moche.  
 
 ### Voilà c'est tout pour la modification du script.
 ---
@@ -80,10 +86,10 @@ Moi j'ai fait exemple : `Aut2Exe.exe  /in "C:\Mon chemin vers\monscript.au3" /ou
 `/MIR : Copier et synchroniser les dossiers (avec suppression).`  
 `/R:0 : Pas de tentative de relecture.`  
 `/W:0 : Pas de délai entre les tentatives.`  
-`/XD : Exclure certains dossiers (safebrowsing, startupCache).`  <- (non nécéssaires)  
-`/XF : Exclure certains fichiers (*.sqlite-wal, *.sqlite-shm).`  <- (non nécéssaires)  
+`/XD : Exclure certains dossiers (safebrowsing, startupCache).`  <- (non nécéssaire au fonctionnement des profils)  
+`/XF : Exclure certains fichiers (*.sqlite-wal, *.sqlite-shm).`  <- (non nécéssaire au fonctionnement des profils)  
 
-Et un point particulier pour un fichier `cxxxxx.sqlite` qui s'est créé par Ff car il ne doit pas aimer le déplacement de profils, et que pour survire il se fabrique ce fichier.  
+Et un point particulier pour un fichier `cxxxxx.sqlite` (profiles groups), qui se créé car Ff ne doit pas aimer le déplacement de profils, et pour survire il se fabrique ce fichier.  
 Perso, j'ai ajouté dans mon script pour qu'il soit aussi exclus par robocopy et pour ne pas qu'il soit recopié sur le dd /ssd.  
 Je ne met pas cette ligne ici, car je peut imaginer que ce nom de fichier non standard ne correspond pas à tout le monde.  
 
